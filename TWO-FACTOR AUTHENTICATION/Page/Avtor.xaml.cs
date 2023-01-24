@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TWO_FACTOR_AUTHENTICATION.Page
 {
@@ -20,14 +21,52 @@ namespace TWO_FACTOR_AUTHENTICATION.Page
     /// </summary>
     public partial class Avtor 
     {
-
-        string password = "15lm20nt7";
+        public static int coint;
+        string password = "1111";
         string login = "naki951230";
+
+        public static string log;
+        public static string pas;
+
+        DispatcherTimer disTimer = new DispatcherTimer();
+        int sec = 0;
         public Avtor()
         {
             InitializeComponent();
+            if(coint==1)
+            {
+                Login.Text = log;
+                Passsword.Text = pas;
+                avtorizat.Visibility = Visibility.Collapsed;
+                time.Visibility= Visibility.Visible;
+                disTimer.Interval = TimeSpan.FromSeconds(1);
+                disTimer.Tick += dtTicker;
+                disTimer.Start();
+            }
+            else if(coint==2)
+            {
+                MessageBox.Show("Введите Логин и Пароль занова");
+                Login.Text = "";
+                Passsword.Text = "";
+                Kod.count = 0;
+            }
         }
+        private void dtTicker(object sender, EventArgs e)
+        {
+           if(sec!=60)
+            {
+                sec++;
+                time.Text=sec.ToString();
 
+            }
+            else
+            {
+                avtorizat.Visibility = Visibility.Visible;
+                time.Visibility = Visibility.Collapsed;
+                disTimer.Stop();
+                sec = 0;
+            }
+        }
         private void avtorizat_Click(object sender, RoutedEventArgs e)
         {
             if (Login.Text == "" || Passsword.Text == "")
@@ -38,8 +77,11 @@ namespace TWO_FACTOR_AUTHENTICATION.Page
             {
                 if (Passsword.Text == password || Login.Text == login)
                 {
+                    Kod.pas = Passsword.Text;
+                    Kod.log = Login.Text;
                     Kod Rezul = new Kod();  // создание объекта окна
                     Rezul.ShowDialog();
+                   
 
                 }
                 else
