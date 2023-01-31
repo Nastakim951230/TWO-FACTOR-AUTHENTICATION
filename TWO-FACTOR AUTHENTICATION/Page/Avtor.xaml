@@ -20,6 +20,17 @@
             </GroupBox>
             <Button Click="avtorizat_Click" Visibility="Visible" Name="avtorizat">Авторизоваться</Button>
             <TextBlock Name="time" Visibility="Collapsed">0</TextBlock>
+            <StackPanel Visibility="Visible">
+                <Canvas Name="Captcha" Height="100" Width="750">
+                    <StackPanel>
+                        
+                    </StackPanel>
+            </Canvas>
+                <GroupBox Header="Введите текст:">
+                    <TextBox Name="CaptchaTB"></TextBox>
+                </GroupBox>
+                <Button Name="vvod">Готово</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

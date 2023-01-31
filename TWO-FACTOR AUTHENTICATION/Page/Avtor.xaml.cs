@@ -24,7 +24,7 @@ namespace TWO_FACTOR_AUTHENTICATION.Page
         public static int coint;
         string password = "1111";
         string login = "naki951230";
-
+        private string text = String.Empty;
         public static string log;
         public static string pas;
 
@@ -45,12 +45,12 @@ namespace TWO_FACTOR_AUTHENTICATION.Page
             }
             else if(coint==2)
             {
-                MessageBox.Show("Введите Логин и Пароль занова");
-                Login.Text = "";
-                Passsword.Text = "";
+                avtorizat.IsEnabled = false;
                 Kod.count = 0;
             }
         }
+        
+
         private void dtTicker(object sender, EventArgs e)
         {
            if(sec!=60)
