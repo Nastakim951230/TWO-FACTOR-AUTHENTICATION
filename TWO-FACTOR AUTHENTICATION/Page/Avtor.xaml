@@ -18,7 +18,7 @@
             <GroupBox Header="Пароль:">
                 <TextBox Name="Passsword"></TextBox>
             </GroupBox>
-            <Button Click="avtorizat_Click" Visibility="Visible" Name="avtorizat">Авторизоваться</Button>
+            <Button  Click="avtorizat_Click" Visibility="Visible" Name="avtorizat">Авторизоваться</Button>
             <TextBlock Name="time" Visibility="Collapsed">0</TextBlock>
             <StackPanel Name="CaptchaSP" Visibility="Collapsed">
                 <Canvas Name="Captcha" Height="100" Width="750">

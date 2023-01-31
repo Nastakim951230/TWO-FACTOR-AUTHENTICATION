@@ -77,63 +77,75 @@ namespace TWO_FACTOR_AUTHENTICATION.Page
                 int vubor = random.Next(0, 3);
                
                     int fontSize = random.Next(16, 33);
-                    int height = random.Next((int)Captcha.Height - 20);
+                perehod:int height = random.Next((int)Captcha.Height - 20);
                     int width = random.Next((int)Captcha.Width - 20);
-                if(vubor == 0)
+                if (width < 570)
                 {
-                    TextBlock textBlock = new TextBlock()
+                    if (height < 50)
                     {
+                        if (vubor == 0)
+                        {
+                            TextBlock textBlock = new TextBlock()
+                            {
 
-                        Text = text,
-                        FontSize = fontSize,
-                        Padding = new Thickness(width, height, 0, 0),
+                                Text = text,
+                                FontSize = fontSize,
+                                Padding = new Thickness(width, height, 0, 0),
 
-                    };
-                    Captcha.Children.Add(textBlock);
+                            };
+                            Captcha.Children.Add(textBlock);
+                        }
+                        else if (vubor == 1)
+                        {
+                            TextBlock textBlock = new TextBlock()
+                            {
+
+                                Text = text,
+                                FontSize = fontSize,
+                                Padding = new Thickness(width, height, 0, 0),
+                                FontWeight = FontWeights.Bold,
+
+                            };
+                            Captcha.Children.Add(textBlock);
+                        }
+                        else if (vubor == 2)
+                        {
+                            TextBlock textBlock = new TextBlock()
+                            {
+
+                                Text = text,
+                                FontSize = fontSize,
+                                Padding = new Thickness(width, height, 0, 0),
+                                FontWeight = FontWeights.Bold,
+                                FontStyle = FontStyles.Italic,
+
+                            };
+                            Captcha.Children.Add(textBlock);
+                        }
+                        else if (vubor == 3)
+                        {
+                            TextBlock textBlock = new TextBlock()
+                            {
+
+                                Text = text,
+                                FontSize = fontSize,
+                                Padding = new Thickness(width, height, 0, 0),
+
+                                FontStyle = FontStyles.Italic,
+
+                            };
+                            Captcha.Children.Add(textBlock);
+                        }
+                    }
+                    else
+                    {
+                        goto perehod;
+                    }
                 }
-                else if(vubor == 1)
+                else
                 {
-                    TextBlock textBlock = new TextBlock()
-                    {
-
-                        Text = text,
-                        FontSize = fontSize,
-                        Padding = new Thickness(width, height, 0, 0),
-                        FontWeight = FontWeights.Bold,
-
-                    };
-                    Captcha.Children.Add(textBlock);
+                    goto perehod;
                 }
-                else if (vubor == 2)
-                {
-                    TextBlock textBlock = new TextBlock()
-                    {
-
-                        Text = text,
-                        FontSize = fontSize,
-                        Padding = new Thickness(width, height, 0, 0),
-                        FontWeight = FontWeights.Bold,
-                        FontStyle = FontStyles.Italic,
-
-                    };
-                    Captcha.Children.Add(textBlock);
-                }
-                else if(vubor==3)
-                {
-                    TextBlock textBlock = new TextBlock()
-                    {
-
-                        Text = text,
-                        FontSize = fontSize,
-                        Padding = new Thickness(width, height, 0, 0),
-                      
-                        FontStyle = FontStyles.Italic,
-
-                    };
-                    Captcha.Children.Add(textBlock);
-                }
-
-
             }
         }
         
